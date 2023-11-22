@@ -21,8 +21,7 @@ export class HomePage {
   constructor() { }
 
   digitos(valor: string) {
-    if (this.is_novo_calculo) {
-      this.resetar();
+    if (this.is_novo_calculo) { 
       if(this.is_segundo_elemento){
         this.segundo_elemento += valor;
         this.resultado += valor;
@@ -67,31 +66,32 @@ export class HomePage {
       this.resultado = (parseInt(this.primeiro_elemento) + parseInt(this.segundo_elemento)).toString();
       //this.memoria += "=" + this.resultado;
       this.memoria = this.primeiro_elemento + this.operador + this.segundo_elemento + " = " + this.resultado;
-      this.is_novo_calculo = true;
+      this.resetar();
+      
     } else if (this.operador == "-" && this.segundo_elemento != "") {
       this.resultado = (parseInt(this.primeiro_elemento) - parseInt(this.segundo_elemento)).toString();
       this.memoria = this.primeiro_elemento + this.operador + this.segundo_elemento + " = " + this.resultado;
-      this.is_novo_calculo = true;
+      this.resetar();
     } else if (this.operador == "*" && this.segundo_elemento != "") {
       this.resultado = (parseInt(this.primeiro_elemento) * parseInt(this.segundo_elemento)).toString();
       this.memoria = this.primeiro_elemento + this.operador + this.segundo_elemento + " = " + this.resultado;
-      this.is_novo_calculo = true;
+      this.resetar();
     } else if (this.operador == "/" && this.segundo_elemento != "") {
       this.resultado = (parseInt(this.primeiro_elemento) / parseInt(this.segundo_elemento)).toString();
       this.memoria = this.primeiro_elemento + this.operador + this.segundo_elemento + " = " + this.resultado;
-      this.is_novo_calculo = true;
+      this.resetar();
     } else if (this.operador == "√" && this.segundo_elemento == "") {
       this.resultado = (Math.sqrt(parseInt(this.primeiro_elemento))).toString();
       this.memoria = this.primeiro_elemento + this.operador + " = " + this.resultado;
-      this.is_novo_calculo = true;
+      this.resetar();
     } else if (this.operador == "²" && this.segundo_elemento == "") {
       this.resultado = (parseInt(this.primeiro_elemento) * parseInt(this.primeiro_elemento)).toString();
       this.memoria = this.primeiro_elemento + "²" + " = " + this.resultado;
-      this.is_novo_calculo = true;
+      this.resetar();
      } else if (this.operador == "³" && this.segundo_elemento == "") {
       this.resultado = (parseInt(this.primeiro_elemento) * parseInt(this.primeiro_elemento) * parseInt(this.primeiro_elemento)).toString();
       this.memoria = this.primeiro_elemento + "³" + " = " + this.resultado;
-      this.is_novo_calculo = true;
+      this.resetar();
     } else {
       if (this.operador == "") {
         alert("Nenhum operador foi selecionado.")
@@ -103,7 +103,7 @@ export class HomePage {
     }
   }
 
-  resetar() {
+  resetarC() {
     this.resultado = "0";
     //this.memoria = ""
     this.verifica_zero = true;
@@ -113,6 +113,16 @@ export class HomePage {
     this.segundo_elemento = "";
     this.operador = "";
     this.is_novo_calculo = false;
+  }
+
+  resetar() {
+    //this.memoria = ""
+    this.verifica_zero = false;
+    this.operador_inserido = false;
+    this.is_segundo_elemento = false;
+    this.segundo_elemento = "";
+    this.operador = "";
+    this.is_novo_calculo = true;
   }
 
 }

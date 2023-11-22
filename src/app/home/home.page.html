@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true">
+<ion-content id="full" [fullscreen]="true">
   <ion-grid id="container">
     <h3>{{memoria}}</h3>
     <h1>{{resultado}}</h1>
@@ -13,7 +13,7 @@
         <ion-button (click)="operadores('³')">x³</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="operadores('☽')">☽</ion-button>
+        <ion-button (click)="operadores('☽')">ﾠ</ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -66,7 +66,7 @@
         <ion-button (click)="digitos('0')">0</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="resetar()">C</ion-button>
+        <ion-button (click)="resetarC()">C</ion-button>
       </ion-col>
       <ion-col>
         <ion-button (click)="calcular()">=</ion-button>
